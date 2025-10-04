@@ -44,12 +44,12 @@ export default function App() {
   setLoading(true);
 
   try {
-const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/chat`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ messages: newMessages })
-});
-    
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: newMessages }),
+        });
+
     const data = await response.json();
     const botText = data.response;
 
